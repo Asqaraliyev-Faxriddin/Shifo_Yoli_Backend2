@@ -13,6 +13,7 @@ RUN npx prisma generate
 
 # 4. Copy source code
 COPY src ./src
+COPY uploads ./uploads
 
 
 
