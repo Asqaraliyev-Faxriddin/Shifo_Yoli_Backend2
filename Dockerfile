@@ -30,7 +30,7 @@ RUN npm ci --production
 # 2. Copy the generated Prisma client from the builder
 COPY --from=builder /app/node_modules/@prisma/client ./node_modules/@prisma/client
 COPY --from=builder /app/node_modules/.prisma        ./node_modules/.prisma
-
+COPY uploads ./uploads
 # 3. Copy your Prisma schema (optional, only if you need it at runtime)
 COPY --from=builder /app/prisma ./prisma
 
@@ -38,6 +38,8 @@ COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/dist ./dist
 
 COPY --from=builder /app/uploads ./uploads
+
+
 
 EXPOSE 4000
 CMD ["node", "dist/main.js"]
