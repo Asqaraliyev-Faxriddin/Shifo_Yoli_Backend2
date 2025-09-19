@@ -6,9 +6,15 @@ export class RedisService implements OnModuleInit {
   private client: Redis;
 
   async onModuleInit() {
-   
+    const host = process.env.REDIS_HOST || 'localhost';
+    const port = parseInt(process.env.REDIS_PORT || '6379', 10);
 
-    this.client = new Redis(); 
+    this.client = new Redis({
+      host,
+      port,
+    });
+
+    console.log(`✅ Connected to Redis at ${host}:${port}`);
   }
 
   async set(key: string, value: string, seconds: number) {
