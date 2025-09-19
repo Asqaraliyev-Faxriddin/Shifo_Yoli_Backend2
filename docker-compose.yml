@@ -43,6 +43,7 @@ services:
       GOOGLE_CALLBACK_URL: ${GOOGLE_CALLBACK_URL}
 
       Jwt_Ref: ${JWT_REFRESH_TOKEN_SECRET}
+      OTP_SMS_API_KEY: ${OTP_SMS_API_KEY}
     command: >
       sh -c "
         npx prisma migrate deploy || npx prisma db push &&
