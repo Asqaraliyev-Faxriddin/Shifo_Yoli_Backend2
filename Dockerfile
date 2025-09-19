@@ -39,5 +39,5 @@ COPY --from=builder /app/dist ./dist
 
 COPY --from=builder /app/uploads ./uploads
 
-EXPOSE 3000
+EXPOSE 4000
 CMD ["node", "dist/main.js"]
